@@ -11,6 +11,10 @@ dist/
 dist-electron/
 *.spec
 
+# Test Data & Output Folders
+samples/
+results/
+
 # Temp & OS Files
 .DS_Store
 Thumbs.db
