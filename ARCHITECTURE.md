@@ -1,71 +1,61 @@
-# EZ Project Architecture
+# ARCHITECTURE OVERVIEW — EZ SIGNATURE EXTRACTION ENGINE (v1.1.2)
 
-## Folder Structure
+## 1. System Topology
 
 ```
-EZ/
-├── backend/
-│   ├── api/
-│   │   ├── routes/
-│   │   ├── controllers/
-│   │   └── middleware/
-│   ├── processors/
-│   ├── utils/
-│   ├── models/
-│   ├── tests/
-│   └── main.py
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── views/
-│   │   ├── services/
-│   │   └── router/
-│   └── public/
-├── docs/
-├── temp/
-├── output/
-└── README.md
++-----------------------------------------------------------------------+
+|                        Electron Main Process                          |
+|                       (electron/main.ts v1.1.2)                       |
++-----------------------------------+-----------------------------------+
+                                    | IPC Subprocess Spawn
+                                    v
++-----------------------------------------------------------------------+
+|                       Backend PyInstaller Engine                      |
+|                  (resources/backend/ez_backend.exe)                   |
+|                   OR Python (backend/main.py)                        |
+|                                                                       |
+|  +---------------------------+     +-------------------------------+  |
+|  | v1.1 Single-Sig Processor |     | v1.2 Multi-Lab Engine         |  |
+|  | (signature_detector.py)   |     | (multi_signature_v2.py)       |  |
+|  +-------------+-------------+     +---------------+---------------+  |
+|                |                                   |                  |
+|                +-----------------+-----------------+                  |
+|                                  |                                    |
+|                                  v                                    |
+|                   Signature Refiner & Alpha Matting                   |
+|                      (signature_refiner.py)                           |
++-----------------------------------+-----------------------------------+
+                                    | JSON Payload Return
+                                    v
++-----------------------------------------------------------------------+
+|                      Vue 3 + Ionic Frontend UI                        |
+|             (ExtractionView.vue & MultiExtractionView.vue)            |
++-----------------------------------------------------------------------+
 ```
 
-## Folder Purposes
+---
 
-### Root Level
+## 2. Key Architecture Components
 
-| Folder/File | Purpose |
-|-------------|---------|
-| `backend/` | Contains all Python backend code for signature extraction logic |
-| `frontend/` | Contains Vue 3 + Ionic frontend application |
-| `docs/` | Project documentation, diagrams, and architectural decisions |
-| `temp/` | Temporary storage for uploaded files and intermediate processing data |
-| `output/` | Processed signature images and ZIP archives for download |
+### Backend Modules (`backend/`)
+- **`backend/main.py`**: CLI entry point supporting `--json`, `--multi-v2`, `--ink-mode`, and `--preservation`.
+- **`backend/processors/multi_signature_v2.py`**:
+  - `detect_signature_rows_v2`: HSV pen ink isolation + row-by-row Y-clustering + column/grid boundary filtering.
+  - `remove_table_border_lines`: Morphological open operation erases horizontal table border lines at top/bottom margins of signature crops.
+- **`backend/processors/signature_refiner.py`**:
+  - 1-to-1 paper subtraction color matting ($C_{\text{ink}} = \frac{C_{\text{scan}} - (1-\alpha)C_{\text{paper}}}{\alpha}$).
 
-### Backend Structure
+### IPC Bridge (`electron/main.ts`)
+- **`getBackendCommand()`**: Checks for packaged standalone executable (`resources/backend/ez_backend/ez_backend.exe`), local build (`backend_dist/ez_backend/ez_backend.exe`), or virtual environment Python (`venv/Scripts/python.exe`).
+- **`extract-signature`**: Handles v1.1 single signature extractions.
+- **`extract-multi-signature-v2`**: Handles v1.2 multi-signature extractions.
 
-| Folder/File | Purpose |
-|-------------|---------|
-| `backend/api/routes/` | API endpoint definitions (REST routes) |
-| `backend/api/controllers/` | Request handlers and business logic for each endpoint |
-| `backend/api/middleware/` | Request/response middleware (validation, logging, CORS) |
-| `backend/processors/` | Core processing modules: input_handler.py, pdf_processor.py, image_processor.py, signature_detector.py, background_remover.py, output_handler.py |
-| `backend/utils/` | Shared utility functions and helpers |
-| `backend/models/` | Data models and type definitions |
-| `backend/tests/` | Unit and integration tests |
-| `backend/main.py` | Application entry point and server initialization |
+### Frontend Components (`frontend/src/`)
+- **`ExtractionView.vue`**: Primary workspace manager, environment mode switcher (`v1.1` vs `v1.2`), sidebar batch queue manager, ZIP exporter.
+- **`MultiExtractionView.vue`**: Multi-signature workspace canvas, document bounding box map viewer, background toggles (`checkerboard`, `light`, `dark`).
 
-### Frontend Structure
+---
 
-| Folder/File | Purpose |
-|-------------|---------|
-| `frontend/src/components/` | Reusable Vue components (upload, preview, progress) |
-| `frontend/src/views/` | Page-level Vue components and layouts |
-| `frontend/src/services/` | API service calls to backend |
-| `frontend/src/router/` | Vue Router configuration |
-| `frontend/public/` | Static assets and index.html |
-
-## Design Decisions
-
-- Separation of concerns: API layer isolated from processing logic
-- Modular processors allow independent development and testing
-- Temp/output folders at root for easy access and cleanup
-- Docs folder for versioned documentation alongside code
-- Frontend follows standard Vue 3 application structure
+## 3. Packaging & Distribution
+- Built with PyInstaller (`--onedir`) and Electron Builder (`--dir`).
+- Standalone portable bundle located at `exe/EZ_Signature_Extraction_v1.1.2_Portable/`.
