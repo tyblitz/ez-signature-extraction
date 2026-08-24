@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      285,
+      102
+    ],
+    "file_size_bytes": 31012,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "SSg_Keruen_Jude_C_Racadio_CE_PA_transparent.png",
+    "output_path": "results\\09_G6\\SSg_Keruen_Jude_C_Racadio_CE_PA_transparent.png"
+  }
+}

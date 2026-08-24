@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      136,
+      93
+    ],
+    "file_size_bytes": 15995,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "Cpl_Sarah_G_Paez_PA.png",
+    "output_path": "results\\11_G8\\Cpl_Sarah_G_Paez_PA.png"
+  }
+}

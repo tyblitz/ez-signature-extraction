@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      402,
+      194
+    ],
+    "file_size_bytes": 42106,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "Sgt_Mac_Lorence_M_Mayol_PAF_transparent.png",
+    "output_path": "results\\2_ODEP\\Sgt_Mac_Lorence_M_Mayol_PAF_transparent.png"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      198,
+      169
+    ],
+    "file_size_bytes": 62186,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "MAJOR_GLENN_GERALD_BACANI.png",
+    "output_path": "results\\MAJOR_GLENN_GERALD_BACANI.png"
+  }
+}

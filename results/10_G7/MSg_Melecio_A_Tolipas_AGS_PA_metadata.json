@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      286,
+      99
+    ],
+    "file_size_bytes": 31534,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "MSg_Melecio_A_Tolipas_AGS_PA.png",
+    "output_path": "results\\10_G7\\MSg_Melecio_A_Tolipas_AGS_PA.png"
+  }
+}

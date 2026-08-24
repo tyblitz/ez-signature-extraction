@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      379,
+      148
+    ],
+    "file_size_bytes": 48559,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "LTC_VEIL_REAGAN_B_MENIL_MI_PA.png",
+    "output_path": "results\\08_G2\\LTC_VEIL_REAGAN_B_MENIL_MI_PA.png"
+  }
+}

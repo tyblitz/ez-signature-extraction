@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      401,
+      235
+    ],
+    "file_size_bytes": 103901,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "COL_JOEL_A_LOBITANA_PA_GSC.png",
+    "output_path": "results\\2_ODEP\\COL_JOEL_A_LOBITANA_PA_GSC.png"
+  }
+}

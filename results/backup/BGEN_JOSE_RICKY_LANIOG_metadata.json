@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      369,
+      187
+    ],
+    "file_size_bytes": 125729,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "BGEN_JOSE_RICKY_LANIOG.png",
+    "output_path": "results\\BGEN_JOSE_RICKY_LANIOG.png"
+  }
+}

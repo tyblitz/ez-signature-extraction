@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+
+# Build and Executable Output
+exe/
+build/
+backend_dist/
+dist/
+dist-electron/
+*.spec
+
+# Temp & OS Files
+.DS_Store
+Thumbs.db
+*.pyc
+__pycache__/
+.idea/
+.vscode/

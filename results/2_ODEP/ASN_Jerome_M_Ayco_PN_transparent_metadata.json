@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      402,
+      171
+    ],
+    "file_size_bytes": 96071,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "ASN_Jerome_M_Ayco_PN_transparent.png",
+    "output_path": "results\\2_ODEP\\ASN_Jerome_M_Ayco_PN_transparent.png"
+  }
+}

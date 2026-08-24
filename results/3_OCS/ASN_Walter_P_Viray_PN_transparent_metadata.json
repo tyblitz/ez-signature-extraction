@@ -1,0 +1,17 @@
+{
+  "export_info": {
+    "source_format": "RGBA",
+    "output_format": "PNG",
+    "original_size": [
+      322,
+      90
+    ],
+    "file_size_bytes": 31825,
+    "compression_used": null,
+    "export_successful": true
+  },
+  "traceability": {
+    "output_filename": "ASN_Walter_P_Viray_PN_transparent.png",
+    "output_path": "results\\3_OCS\\ASN_Walter_P_Viray_PN_transparent.png"
+  }
+}
