@@ -15,6 +15,9 @@ dist-electron/
 samples/
 results/
 
+# AI System Rules & Logs
+AI_RULES.md
+
 # Temp & OS Files
 .DS_Store
 Thumbs.db
